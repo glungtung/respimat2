@@ -36,7 +36,6 @@
 		E4D8936E11527B74007E1F53 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936B11527B74007E1F53 /* main.mm */; };
 		E4D8936F11527B74007E1F53 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936D11527B74007E1F53 /* testApp.mm */; };
 		F01AEF611793366B00507CEE /* b-technologie@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01AEF601793366B00507CEE /* b-technologie@2x.jpg */; };
-		F01AEF63179338DD00507CEE /* Accueil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01AEF62179338DD00507CEE /* Accueil.jpg */; };
 		F01AEF6717933B4200507CEE /* Accueil@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01AEF6517933B4200507CEE /* Accueil@2x.jpg */; };
 		F01AEF691793494100507CEE /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F01AEF681793494100507CEE /* Default-Landscape@2x~ipad.png */; };
 		F01AEF6E1793F42B00507CEE /* BonUsage01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01AEF6C1793F42B00507CEE /* BonUsage01@2x.jpg */; };
@@ -67,12 +66,18 @@
 		F0431D8117788A2200D44F0B /* ofxQCAR_Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0431D6717788A2200D44F0B /* ofxQCAR_Utils.mm */; };
 		F0431D8217788A2200D44F0B /* ofxQCAR_ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0431D6917788A2200D44F0B /* ofxQCAR_ViewController.mm */; };
 		F0431D8717788BC400D44F0B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F0431D8617788BC400D44F0B /* Default-Landscape~ipad.png */; };
-		F0431D9017788E4100D44F0B /* 2-Techno.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0431D8B17788E4100D44F0B /* 2-Techno.jpg */; };
-		F0431D9117788E4100D44F0B /* 3-Utilisation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0431D8C17788E4100D44F0B /* 3-Utilisation.jpg */; };
 		F0431D9217788E4100D44F0B /* 4-Modeaction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0431D8D17788E4100D44F0B /* 4-Modeaction.jpg */; };
 		F0431D9317788E4100D44F0B /* cadre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0431D8E17788E4100D44F0B /* cadre.jpg */; };
 		F04EED5717A00C340051175A /* BonUsage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F04EED5617A00C340051175A /* BonUsage.mm */; };
 		F04EED5A17A00C450051175A /* MyAppViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F04EED5917A00C450051175A /* MyAppViewController.mm */; };
+		F04EED6317A16FBD0051175A /* Bouton-accueil01-x404-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED5C17A16FBD0051175A /* Bouton-accueil01-x404-y1389.jpg */; };
+		F04EED6417A16FBD0051175A /* Bouton-accueil02-x718-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED5D17A16FBD0051175A /* Bouton-accueil02-x718-y1389.jpg */; };
+		F04EED6517A16FBD0051175A /* Bouton-accueil03-x1047-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED5E17A16FBD0051175A /* Bouton-accueil03-x1047-y1389.jpg */; };
+		F04EED6617A16FBD0051175A /* Bouton-accueil04-x1419-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED5F17A16FBD0051175A /* Bouton-accueil04-x1419-y1389.jpg */; };
+		F04EED6717A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6017A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg */; };
+		F04EED6817A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6117A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg */; };
+		F04EED6917A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */; };
+		F04EED6C17A174E30051175A /* UtilisationApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F04EED6B17A174E30051175A /* UtilisationApp.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +132,6 @@
 		E4D8936C11527B74007E1F53 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		E4D8936D11527B74007E1F53 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
 		F01AEF601793366B00507CEE /* b-technologie@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "b-technologie@2x.jpg"; sourceTree = "<group>"; };
-		F01AEF62179338DD00507CEE /* Accueil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Accueil.jpg; sourceTree = "<group>"; };
 		F01AEF6517933B4200507CEE /* Accueil@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Accueil@2x.jpg"; sourceTree = "<group>"; };
 		F01AEF681793494100507CEE /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		F01AEF6C1793F42B00507CEE /* BonUsage01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "BonUsage01@2x.jpg"; sourceTree = "<group>"; };
@@ -240,14 +244,21 @@
 		F0431D6817788A2200D44F0B /* ofxQCAR_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxQCAR_ViewController.h; sourceTree = "<group>"; };
 		F0431D6917788A2200D44F0B /* ofxQCAR_ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxQCAR_ViewController.mm; sourceTree = "<group>"; };
 		F0431D8617788BC400D44F0B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		F0431D8B17788E4100D44F0B /* 2-Techno.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-Techno.jpg"; sourceTree = "<group>"; };
-		F0431D8C17788E4100D44F0B /* 3-Utilisation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-Utilisation.jpg"; sourceTree = "<group>"; };
 		F0431D8D17788E4100D44F0B /* 4-Modeaction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-Modeaction.jpg"; sourceTree = "<group>"; };
 		F0431D8E17788E4100D44F0B /* cadre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cadre.jpg; sourceTree = "<group>"; };
 		F04EED5517A00C340051175A /* BonUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonUsage.h; sourceTree = "<group>"; };
 		F04EED5617A00C340051175A /* BonUsage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BonUsage.mm; sourceTree = "<group>"; };
 		F04EED5817A00C450051175A /* MyAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppViewController.h; sourceTree = "<group>"; };
 		F04EED5917A00C450051175A /* MyAppViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyAppViewController.mm; sourceTree = "<group>"; };
+		F04EED5C17A16FBD0051175A /* Bouton-accueil01-x404-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-accueil01-x404-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED5D17A16FBD0051175A /* Bouton-accueil02-x718-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-accueil02-x718-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED5E17A16FBD0051175A /* Bouton-accueil03-x1047-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-accueil03-x1047-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED5F17A16FBD0051175A /* Bouton-accueil04-x1419-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-accueil04-x1419-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED6017A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-BonUsage01-x1142-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED6117A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-BonUsage02-x1435-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-BonUsage03-x1733-y1389.jpg"; sourceTree = "<group>"; };
+		F04EED6A17A174E30051175A /* UtilisationApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilisationApp.h; sourceTree = "<group>"; };
+		F04EED6B17A174E30051175A /* UtilisationApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UtilisationApp.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +460,8 @@
 		F0431CBD177889CC00D44F0B /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				F04EED6A17A174E30051175A /* UtilisationApp.h */,
+				F04EED6B17A174E30051175A /* UtilisationApp.mm */,
 				F0431CBE177889CC00D44F0B /* RAApp.h */,
 				F0431CBF177889CC00D44F0B /* RAApp.mm */,
 				F0431CC0177889CC00D44F0B /* VideoApp.h */,
@@ -714,17 +727,29 @@
 		F0431D8917788E4100D44F0B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F04EED5B17A16FBD0051175A /* Boutons-JPG */,
 				F01AEF6B1793F42B00507CEE /* bon usage */,
 				F01AEF6517933B4200507CEE /* Accueil@2x.jpg */,
-				F01AEF62179338DD00507CEE /* Accueil.jpg */,
 				F01AEF5D1793365100507CEE /* boutons */,
-				F0431D8B17788E4100D44F0B /* 2-Techno.jpg */,
-				F0431D8C17788E4100D44F0B /* 3-Utilisation.jpg */,
 				F0431D8D17788E4100D44F0B /* 4-Modeaction.jpg */,
 				F0431D8E17788E4100D44F0B /* cadre.jpg */,
 			);
 			name = Interface;
 			path = bin/data/Interface;
+			sourceTree = "<group>";
+		};
+		F04EED5B17A16FBD0051175A /* Boutons-JPG */ = {
+			isa = PBXGroup;
+			children = (
+				F04EED5C17A16FBD0051175A /* Bouton-accueil01-x404-y1389.jpg */,
+				F04EED5D17A16FBD0051175A /* Bouton-accueil02-x718-y1389.jpg */,
+				F04EED5E17A16FBD0051175A /* Bouton-accueil03-x1047-y1389.jpg */,
+				F04EED5F17A16FBD0051175A /* Bouton-accueil04-x1419-y1389.jpg */,
+				F04EED6017A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg */,
+				F04EED6117A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg */,
+				F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */,
+			);
+			path = "Boutons-JPG";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,18 +837,22 @@
 				F0431D7D17788A2200D44F0B /* license_3rdpartynotice.txt in Resources */,
 				F0431D7E17788A2200D44F0B /* README.md in Resources */,
 				F0431D8717788BC400D44F0B /* Default-Landscape~ipad.png in Resources */,
-				F0431D9017788E4100D44F0B /* 2-Techno.jpg in Resources */,
-				F0431D9117788E4100D44F0B /* 3-Utilisation.jpg in Resources */,
 				F0431D9217788E4100D44F0B /* 4-Modeaction.jpg in Resources */,
 				F0431D9317788E4100D44F0B /* cadre.jpg in Resources */,
 				F01D6F7117858105009E9909 /* respimat.dat in Resources */,
 				F01D6F7217858105009E9909 /* respimat.xml in Resources */,
 				F01AEF611793366B00507CEE /* b-technologie@2x.jpg in Resources */,
-				F01AEF63179338DD00507CEE /* Accueil.jpg in Resources */,
 				F01AEF6717933B4200507CEE /* Accueil@2x.jpg in Resources */,
 				F01AEF691793494100507CEE /* Default-Landscape@2x~ipad.png in Resources */,
 				F01AEF6E1793F42B00507CEE /* BonUsage01@2x.jpg in Resources */,
 				F01AEF6F1793F42B00507CEE /* BonUsage02@2x.jpg in Resources */,
+				F04EED6317A16FBD0051175A /* Bouton-accueil01-x404-y1389.jpg in Resources */,
+				F04EED6417A16FBD0051175A /* Bouton-accueil02-x718-y1389.jpg in Resources */,
+				F04EED6517A16FBD0051175A /* Bouton-accueil03-x1047-y1389.jpg in Resources */,
+				F04EED6617A16FBD0051175A /* Bouton-accueil04-x1419-y1389.jpg in Resources */,
+				F04EED6717A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg in Resources */,
+				F04EED6817A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg in Resources */,
+				F04EED6917A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +895,7 @@
 				F0431D8217788A2200D44F0B /* ofxQCAR_ViewController.mm in Sources */,
 				F04EED5717A00C340051175A /* BonUsage.mm in Sources */,
 				F04EED5A17A00C450051175A /* MyAppViewController.mm in Sources */,
+				F04EED6C17A174E30051175A /* UtilisationApp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

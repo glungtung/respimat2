@@ -9,7 +9,7 @@
 #import "ofxQCAR_ViewController.h"
 #import "RAApp.h"
 #import "VideoAppViewController.h"
-#import "VideoApp.h"
+#import "UtilisationApp.h"
 
 @interface MyAppViewController() {
 }
@@ -82,13 +82,15 @@
    // NSInteger buttonX = 260;
 //    NSInteger buttonGap = 20;
     //NSInteger buttonHeight = (screenRect.size.height - 44) / [buttonTitles count] - buttonGap * ([buttonTitles count] - 1);
-    CGRect buttonRect1 = CGRectMake(260, 610, 150, 55);
     //CGRect buttonRect1 = CGRectMake(390, 1380)
-    CGRect buttonRect2 = CGRectMake(430, 610, 140, 55);
     //CGRect buttonRect1 = CGRectMake(260, 600, 150, 60);
     
     
-    UIImage *img1 = [UIImage imageNamed:@"b-technologie.jpg"];
+    UIImage *img1 = [UIImage imageNamed:@"Bouton-accueil01-x404-y1389.jpg"];
+    CGRect buttonRect1 = CGRectMake(404/2, 1389/2, img1.size.width/2, img1.size.height/2);
+
+    UIImage *img2 = [UIImage imageNamed:@"Bouton-accueil02-x718-y1389.jpg"];
+    CGRect buttonRect2 = CGRectMake(718/2, 1389/2, img2.size.width/2, img2.size.height/2);
 
     
     //for (int i = 0; i < [buttonTitles count]; i++) {
@@ -99,18 +101,18 @@
     UIButton *button1, *button2;
 
 //    button1 = [[[UIButton alloc] initWithFrame:CGRectMake(390, 1380, img1.size.width, img1.size.height)] autorelease];
-    button1 = [[[UIButton alloc] initWithFrame:CGRectMake(390/2,1380/2, img1.size.width, img1.size.height)] autorelease];
-
-    [button1 setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
+    button1 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect1.origin.x, buttonRect1.origin.y, buttonRect1.size.width, buttonRect1.size.height)] autorelease];
+   //[button1 setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
     [button1 setBackgroundImage: img1 forState: UIControlStateHighlighted];
     [button1 addTarget:self action:@selector(button1Pressed:) forControlEvents:UIControlEventTouchUpInside];
     [containerView addSubview:button1 ];
-/*
-    button2 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect2.origin.x, buttonRect2.origin.y, buttonRect2.size.width, buttonRect1.size.height)] autorelease];
-    [button2 setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
+
+    button2 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect2.origin.x, buttonRect2.origin.y, buttonRect2.size.width, buttonRect2.size.height)] autorelease];
+    //[button2 setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
+    [button2 setBackgroundImage: img2 forState: UIControlStateHighlighted];
     [button2 addTarget:self action:@selector(button2Pressed:) forControlEvents:UIControlEventTouchUpInside];
     [containerView addSubview:button2 ];
- */
+ 
 /*
         if (i== 0)
             [button addTarget:self action:@selector(button1Pressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -127,24 +129,25 @@
 }
 
 - (void)button1Pressed:(id)sender {
-    VideoAppViewController *viewController;
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    //return [self initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width) app:app];
-    viewController = [[[VideoAppViewController alloc] initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width)
-                                                                app:new VideoApp()] autorelease];
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-    //self.navigationController.navigationBar.topItem.title = @"Video";
-    self.navigationController.navigationBarHidden = YES;
-
-}
-
-- (void)button2Pressed:(id)sender {
     ofxQCAR_ViewController * viewController;
     viewController = [[[ofxQCAR_ViewController alloc] initWithAppInLandscapeMode:new RAApp()] autorelease];
     
     [self.navigationController pushViewController:viewController animated:YES];
     //self.navigationController.navigationBar.topItem.title = @"Qualcomm AR";
+    self.navigationController.navigationBarHidden = YES;
+
+}
+
+- (void)button2Pressed:(id)sender {
+    // Basic view controller (should not be named Video...)
+    VideoAppViewController *viewController;
+    UtilisationApp *utilisation = new UtilisationApp();
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    viewController = [[[VideoAppViewController alloc] initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width)
+                                                                app:utilisation] autorelease];
+    utilisation->mainController = viewController;
+    [self.navigationController pushViewController:viewController animated:YES];
+    //self.navigationController.navigationBar.topItem.title = @"Video";
     self.navigationController.navigationBarHidden = YES;
 
 }

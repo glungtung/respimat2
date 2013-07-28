@@ -70,6 +70,10 @@ void RAApp::setup(){
     qcar->autoFocusOn();
     qcar->setCameraPixelsFlag(true);
     qcar->setup();
+    
+    cadreH.loadImage("interface/cadreH.jpg");
+    cadreB.loadImage("interface/cadreB.jpg");
+    
 }
 
 //--------------------------------------------------------------
@@ -231,7 +235,6 @@ void RAApp::draw(){
         
         ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
         ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
-        ofDrawBitmapString("double tap to change model", 10, 60);
         
         
         /*
@@ -262,36 +265,12 @@ void RAApp::draw(){
     
     glEnable(GL_DEPTH_TEST);
     
-    /**
-     *  access to camera pixels.
-     */
-    int cameraW = qcar->getCameraWidth();
-    int cameraH = qcar->getCameraHeight();
-    unsigned char * cameraPixels = qcar->getCameraPixels();
-    if(cameraW > 0 && cameraH > 0 && cameraPixels != NULL) {
-        if(cameraImage.isAllocated() == false ) {
-            cameraImage.allocate(cameraW, cameraH, OF_IMAGE_GRAYSCALE);
-        }
-        cameraImage.setFromPixels(cameraPixels, cameraW, cameraH, OF_IMAGE_GRAYSCALE);
-        if(qcar->getOrientation() == OFX_QCAR_ORIENTATION_PORTRAIT) {
-            cameraImage.rotate90(1);
-        } else if(qcar->getOrientation() == OFX_QCAR_ORIENTATION_LANDSCAPE) {
-            cameraImage.mirror(true, true);
-        }
-        
-        cameraW = cameraImage.getWidth() * 0.5;
-        cameraH = cameraImage.getHeight() * 0.5;
-        int cameraX = 0;
-        int cameraY = ofGetHeight() - cameraH;
-        cameraImage.draw(cameraX, cameraY, cameraW, cameraH);
-        
-        ofPushStyle();
-        ofSetColor(ofColor::white);
-        ofNoFill();
-        ofSetLineWidth(3);
-        ofRect(cameraX, cameraY, cameraW, cameraH);
-        ofPopStyle();
-    }
+
+    
+    // CADRE
+    cadreH.draw(0,0);
+    cadreB.draw(0,ofGetHeight() - cadreB.height);
+    
     
     if(bPressed) {
         ofSetColor(ofColor::red);

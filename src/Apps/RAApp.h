@@ -33,7 +33,7 @@ public:
 
     ofPoint touchPoint;
     
-    ofImage cameraImage;
+    ofImage cadreH, cadreB;
     
     ofxAssimpModelLoader model;
     ofLight	light;
