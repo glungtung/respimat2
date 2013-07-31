@@ -10,7 +10,7 @@
 
 - (id) initWithFrame:(CGRect)frame app:(ofxiPhoneApp *)app {
     
-    ofxiPhoneGetOFWindow()->setOrientation( OF_ORIENTATION_DEFAULT );   //-- default portait orientation.    
+    ofxiPhoneGetOFWindow()->setOrientation( OF_ORIENTATION_DEFAULT );
     
     return self = [super initWithFrame:frame app:app];
 }

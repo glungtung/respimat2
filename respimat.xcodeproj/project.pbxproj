@@ -78,6 +78,10 @@
 		F04EED6817A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6117A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg */; };
 		F04EED6917A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */; };
 		F04EED6C17A174E30051175A /* UtilisationApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F04EED6B17A174E30051175A /* UtilisationApp.mm */; };
+		F0DD1A1917A6744500755CAD /* MentionLegale-Page01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1517A6744500755CAD /* MentionLegale-Page01.jpg */; };
+		F0DD1A1A17A6744500755CAD /* MentionLegale-Page02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1617A6744500755CAD /* MentionLegale-Page02.jpg */; };
+		F0DD1A1B17A6744500755CAD /* MentionLegale-Page03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1717A6744500755CAD /* MentionLegale-Page03.jpg */; };
+		F0DD1A1C17A6744500755CAD /* MentionLegale-Page04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1817A6744500755CAD /* MentionLegale-Page04.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +263,10 @@
 		F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-BonUsage03-x1733-y1389.jpg"; sourceTree = "<group>"; };
 		F04EED6A17A174E30051175A /* UtilisationApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilisationApp.h; sourceTree = "<group>"; };
 		F04EED6B17A174E30051175A /* UtilisationApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UtilisationApp.mm; sourceTree = "<group>"; };
+		F0DD1A1517A6744500755CAD /* MentionLegale-Page01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page01.jpg"; sourceTree = "<group>"; };
+		F0DD1A1617A6744500755CAD /* MentionLegale-Page02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page02.jpg"; sourceTree = "<group>"; };
+		F0DD1A1717A6744500755CAD /* MentionLegale-Page03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page03.jpg"; sourceTree = "<group>"; };
+		F0DD1A1817A6744500755CAD /* MentionLegale-Page04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page04.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -727,6 +735,7 @@
 		F0431D8917788E4100D44F0B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F0DD1A1417A6744500755CAD /* Mentionlegale */,
 				F04EED5B17A16FBD0051175A /* Boutons-JPG */,
 				F01AEF6B1793F42B00507CEE /* bon usage */,
 				F01AEF6517933B4200507CEE /* Accueil@2x.jpg */,
@@ -750,6 +759,17 @@
 				F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */,
 			);
 			path = "Boutons-JPG";
+			sourceTree = "<group>";
+		};
+		F0DD1A1417A6744500755CAD /* Mentionlegale */ = {
+			isa = PBXGroup;
+			children = (
+				F0DD1A1517A6744500755CAD /* MentionLegale-Page01.jpg */,
+				F0DD1A1617A6744500755CAD /* MentionLegale-Page02.jpg */,
+				F0DD1A1717A6744500755CAD /* MentionLegale-Page03.jpg */,
+				F0DD1A1817A6744500755CAD /* MentionLegale-Page04.jpg */,
+			);
+			path = Mentionlegale;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -853,6 +873,10 @@
 				F04EED6717A16FBD0051175A /* Bouton-BonUsage01-x1142-y1389.jpg in Resources */,
 				F04EED6817A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg in Resources */,
 				F04EED6917A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg in Resources */,
+				F0DD1A1917A6744500755CAD /* MentionLegale-Page01.jpg in Resources */,
+				F0DD1A1A17A6744500755CAD /* MentionLegale-Page02.jpg in Resources */,
+				F0DD1A1B17A6744500755CAD /* MentionLegale-Page03.jpg in Resources */,
+				F0DD1A1C17A6744500755CAD /* MentionLegale-Page04.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,7 @@ void RAApp::setup(){
     light.enable();
     
     //ofPoint modelPosition(ofGetWidth() / 2, (float)ofGetHeight() * 0.75 , 0);
-    model.loadModel("3D/rerespimat/respimat 04.3DS");
+    model.loadModel("3D/rerespimat/respimat06col14.DAE");
     //ofEnableSeparateSpecularLight();
 
     //model.setPosition(modelPosition.x, modelPosition.y, modelPosition.z);
@@ -71,8 +71,8 @@ void RAApp::setup(){
     qcar->setCameraPixelsFlag(true);
     qcar->setup();
     
-    cadreH.loadImage("interface/cadreH.jpg");
-    cadreB.loadImage("interface/cadreB.jpg");
+    cadreH.loadImage("Interface/cadreH.jpg");
+    cadreB.loadImage("Interface/cadreB.jpg");
     
 }
 
@@ -86,7 +86,8 @@ void RAApp::update(){
 //--------------------------------------------------------------
 void RAApp::draw(){
     
-    
+    ofSetColor(ofColor::white);
+
     
     ofxQCAR * qcar = ofxQCAR::getInstance();
     qcar->draw();
@@ -231,8 +232,7 @@ void RAApp::draw(){
         
         // glDisable( GL_CULL_FACE );
         
-        ofSetupScreen();
-        
+        //ofSetupScreen();
         ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
         ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
         
@@ -263,14 +263,21 @@ void RAApp::draw(){
         ofDisableNormalizedTexCoords();
     }
     
-    glEnable(GL_DEPTH_TEST);
-    
+   // glEnable(GL_DEPTH_TEST);
+    glDisable(GL_DEPTH_TEST);
 
-    
+    ofGetGLRenderer()->setupScreenPerspective(0,0,OF_ORIENTATION_180);
+   // ofSetupScreen();
+
     // CADRE
+    ofPushMatrix();
+/*    glRotatef(-180, 0, 0, 1);
+    glScalef(1, -1, 1);
+    glTranslatef(-ofGetWidth(), 0, 0);
+*/
     cadreH.draw(0,0);
     cadreB.draw(0,ofGetHeight() - cadreB.height);
-    
+    ofPopMatrix();
     
     if(bPressed) {
         ofSetColor(ofColor::red);

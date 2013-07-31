@@ -8,12 +8,12 @@ int main(){
     ofAppiPhoneWindow *window = new ofAppiPhoneWindow();
     window->enableDepthBuffer();
     window->enableRetinaSupport();
+    window->setOrientation(OF_ORIENTATION_90_RIGHT);
+
     
     ofSetupOpenGL( ofPtr<ofAppBaseWindow>( window ), 1024,768, OF_FULLSCREEN );
     window->startAppWithDelegate( "MyAppDelegate" );
     
-    window->setOrientation(OF_ORIENTATION_90_RIGHT);
-
     
  /*
         
