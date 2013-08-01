@@ -64,11 +64,8 @@ void RAApp::setup(){
     light.enable();
     
     //ofPoint modelPosition(ofGetWidth() / 2, (float)ofGetHeight() * 0.75 , 0);
-<<<<<<< HEAD
     //model.loadModel("3D/rerespimat/respimat06col14.DAE");
-=======
-    model.loadModel("3D/rerespimat/respimat06col14.DAE");
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
+
     //ofEnableSeparateSpecularLight();
 
     //model.setPosition(modelPosition.x, modelPosition.y, modelPosition.z);
@@ -116,10 +113,7 @@ void RAApp::update(){
 
 //--------------------------------------------------------------
 void RAApp::draw(){
-<<<<<<< HEAD
-=======
-    
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
+
     ofSetColor(ofColor::white);
 
     
@@ -236,13 +230,9 @@ void RAApp::draw(){
         // glDisable( GL_CULL_FACE );
         
         //ofSetupScreen();
-<<<<<<< HEAD
       //  ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
       //  ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
-=======
-        ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
-        ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
+
         
         
         /*
@@ -277,7 +267,6 @@ void RAApp::draw(){
         model.resetAllAnimations();
     }
     
-<<<<<<< HEAD
     //glEnable(GL_DEPTH_TEST);
     glAlphaFunc ( GL_GREATER, 0.9 ) ;
     glDisable(GL_DEPTH_TEST);
@@ -294,23 +283,7 @@ void RAApp::draw(){
 
     cadreH.draw(0,0);
     cadreB.draw(0,ofGetHeight() - cadreB.height);
-=======
-   // glEnable(GL_DEPTH_TEST);
-    glDisable(GL_DEPTH_TEST);
 
-    ofGetGLRenderer()->setupScreenPerspective(0,0,OF_ORIENTATION_180);
-   // ofSetupScreen();
-
-    // CADRE
-    ofPushMatrix();
-/*    glRotatef(-180, 0, 0, 1);
-    glScalef(1, -1, 1);
-    glTranslatef(-ofGetWidth(), 0, 0);
-*/
-    cadreH.draw(0,0);
-    cadreB.draw(0,ofGetHeight() - cadreB.height);
-    ofPopMatrix();
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
     
     if(bPressed) {
         ofSetColor(ofColor::red);
