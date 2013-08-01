@@ -12,10 +12,9 @@ UtilisationApp :: ~UtilisationApp () {
 }
 
 //--------------------------------------------------------------
-void UtilisationApp::setup() {	
+void UtilisationApp::setup() {
 	ofBackground(127);
     
-
     cadre.loadImage("Interface/Utilisation.jpg");
     
     AVFoundationVideoPlayer * avVideoPlayer;
@@ -49,19 +48,8 @@ void UtilisationApp::draw() {
     if (video.isLoaded())
         video.getTexture()->draw(x, y, 2048, 1152);
     
- /*
-    x = ofGetWidth()  * 0.2;
-    y = ofGetHeight() * 0.11;
-    int p = ofGetHeight() * 0.035;
     
-    ofSetColor(ofColor::white);
-    font.drawString("frame num      = " + ofToString( ofGetFrameNum() ),    x, y+=p);
-    font.drawString("frame rate     = " + ofToString( ofGetFrameRate() ),   x, y+=p);
-    font.drawString("screen width   = " + ofToString( ofGetWidth() ),       x, y+=p);
-    font.drawString("screen height  = " + ofToString( ofGetHeight() ),      x, y+=p);
-    font.drawString("is video loaded= " + ofToString( video.isLoaded() ),   x, y+=p);
-   */ 
-
+        
 
 }
 
@@ -78,34 +66,50 @@ void UtilisationApp::loadVideo(string path) {
 void UtilisationApp::exit() {
     //
     video.close();
+    
 }
 
 //--------------------------------------------------------------
 void UtilisationApp::touchDown(ofTouchEventArgs &touch){
 
+    // clic dans l'ecran video
     if (video.isLoaded() && ofRectangle(0,201,2048,1152).inside(touch.x, touch.y))
         video.close();
     else
     {
+        // video 1
         if (!video.isLoaded() && ofRectangle(249,603,680,385).inside(touch.x, touch.y))
             loadVideo("VideosHD/1erUtilisation.mp4");
-        
-        if (!video.isLoaded() && ofRectangle(1229,360,463,262).inside(touch.x, touch.y))
+        // video 2
+        else if (!video.isLoaded() && ofRectangle(1229,360,463,262).inside(touch.x, touch.y))
             loadVideo("VideosHD/Q-01.mp4");
-        
-        if (!video.isLoaded() && ofRectangle(1229,682,463,262).inside(touch.x, touch.y))
+        // video 3
+        else if (!video.isLoaded() && ofRectangle(1229,682,463,262).inside(touch.x, touch.y))
             loadVideo("VideosHD/Q-02.mp4");
-        
-        if (!video.isLoaded() && ofRectangle(1229,1000,463,262).inside(touch.x, touch.y))
+        // video 4
+        else if (!video.isLoaded() && ofRectangle(1229,1000,463,262).inside(touch.x, touch.y))
             loadVideo("VideosHD/Q-03.mp4");
     }
-    
-    if (!video.isLoaded() && ofRectangle(1733,1389,197,89).inside(touch.x, touch.y))
+    // ACCUEIL
+    if (ofRectangle(1733,1389,197,89).inside(touch.x, touch.y))
     {
         cout << "quitte vers accueil" << endl;
-
+        exit();
         [mainController.navigationController popViewControllerAnimated:YES];
 
+    }
+    else if (ofRectangle(1370,40,250,118).inside(touch.x, touch.y))
+    {
+        cout << "quitte vers accueil" << endl;
+        exit();
+        [mainController.navigationController popViewControllerAnimated:YES];
+        
+        [NSTimer scheduledTimerWithTimeInterval:1
+                                         target:mainController
+                                       selector:@selector(buttonLegalAction:)
+                                       userInfo:nil
+                                        repeats:NO];
+        
     }
     //TODO : Mentions légales
 

@@ -20,8 +20,8 @@ void VideoApp::setup() {
 
     
     int fontSize = 8;
-    if (ofxiPhoneGetOFWindow()->isRetinaSupported())
-        fontSize *= 2;
+    //if (ofxiPhoneGetOFWindow()->isRetinaSupported())
+     //   fontSize *= 2;
     
     font.loadFont("fonts/mono0755.ttf", fontSize);
     

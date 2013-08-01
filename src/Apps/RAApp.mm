@@ -1,4 +1,5 @@
 #include "RAApp.h"
+#include "dataLoader.h"
 
 //--------------------------------------------------------------
 RAApp :: RAApp () {
@@ -15,11 +16,18 @@ RAApp :: ~RAApp () {
 void RAApp::setup(){
 	ofBackground(0);
     
+    //ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+
+    
 //    teapotImage.loadImage("qcar_assets/TextureTeapotBrass.png");
 //    teapotImage.mirror(true, false);  //-- flip texture vertically since the texture coords are set that way on the teapot.
     
     touchPoint.x = touchPoint.y = -1;
     
+    EAGLView *view = ofxiPhoneGetGLView();
+    recogPinch = [[ofPinchGestureRecognizer alloc] initWithView:view];
+    objectScale = 3.5;
+    lastObjectScale = 3.5;
     
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     
@@ -56,13 +64,12 @@ void RAApp::setup(){
     light.enable();
     
     //ofPoint modelPosition(ofGetWidth() / 2, (float)ofGetHeight() * 0.75 , 0);
-    model.loadModel("3D/rerespimat/respimat 04.3DS");
+    //model.loadModel("3D/rerespimat/respimat06col14.DAE");
     //ofEnableSeparateSpecularLight();
 
     //model.setPosition(modelPosition.x, modelPosition.y, modelPosition.z);
     
-    model.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
-    //model.playAllAnimations();
+
     
     
     ofxQCAR * qcar = ofxQCAR::getInstance();
@@ -71,9 +78,19 @@ void RAApp::setup(){
     qcar->setCameraPixelsFlag(true);
     qcar->setup();
     
-    cadreH.loadImage("interface/cadreH.jpg");
-    cadreB.loadImage("interface/cadreB.jpg");
+    cadreH.loadImage("Interface/cadreH.jpg");
+    cadreB.loadImage("Interface/cadreB.jpg");
     
+    animState = 0;
+    animEnds[0] = 40.0 / 500;
+    animEnds[1] = 150.0 / 500;
+    animEnds[2] = 499. / 500;
+    
+
+    model.loadModel(singletonDataLoader::Instance()->sceneRespimat);
+    model.optimizeScene();
+    model.playAllAnimations();
+    model.setLoopStateForAllAnimations(OF_LOOP_NONE);
 }
 
 //--------------------------------------------------------------
@@ -81,12 +98,22 @@ void RAApp::update(){
     ofxQCAR::getInstance()->update();
     model.update();
     
+    if (recogPinch->pinching)
+        objectScale = lastObjectScale * recogPinch->scale;
+    else
+        lastObjectScale = objectScale;
+    
+    if (model.getAnimation(0).getPosition() >= animEnds[animState])
+        model.getAnimation(0).setPaused(true);
+    else
+        model.getAnimation(0).setPaused(false);
+
 }
 
 //--------------------------------------------------------------
 void RAApp::draw(){
-    
-    
+    ofSetColor(ofColor::white);
+
     
     ofxQCAR * qcar = ofxQCAR::getInstance();
     qcar->draw();
@@ -110,8 +137,8 @@ void RAApp::draw(){
             bInside = ofInsidePoly(touchPoint, markerPoly);
         }
         
-        if (bInside)
-            model.playAllAnimations();
+//        if (bInside)
+            //model.playAllAnimations();
         
         
         ofSetColor(ofColor(255, 0, 255, bInside ? 150 : 50));
@@ -138,10 +165,8 @@ void RAApp::draw(){
         
         ofEnableAlphaBlending();
         
-        //float objectScale = .5;
-        float objectScale = 4;
+        //float objectScale = MAX(recogPinch->scale,4.);
 
-        
         
         // REACTIVATED BECAUSE VUFORIA DESACTIVATED IT DURING RENDERING !!
         glEnable( GL_CULL_FACE );
@@ -152,8 +177,7 @@ void RAApp::draw(){
         ////////////////////////
         glEnable( GL_DEPTH_TEST );
         
-         glAlphaFunc ( GL_GREATER, 0.6 ) ;
-         glEnable ( GL_ALPHA_TEST ) ;
+
         
   //       glEnable(GL_BLEND);
    //      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -164,77 +188,48 @@ void RAApp::draw(){
         
         glPushMatrix();
         glTranslatef( ofGetWidth() * 0.5, ofGetHeight() * 0.5, 0 );
-        {
-            
-            
+
             glMatrixMode(GL_PROJECTION);
+            glPushMatrix();
             glLoadMatrixf( qcar->getProjectionMatrix().getPtr() );
             
             glMatrixMode( GL_MODELVIEW );
+            glPushMatrix();
             glLoadMatrixf( qcar->getModelViewMatrix().getPtr() );
-            glTranslatef( 0.0f, 0.0f, 0.0f );
-            glRotatef(180, 1.0, .0, 1.0);
+          //  glTranslatef( 0.0f, 0.0f, 0.0f );
+          //  glRotatef(90, .0, .0, 1.0);
+          //  glRotatef(-90, 0, 1.0, 0);
+            glRotatef(-90, 1.0, 0, 0);
+        //  glRotatef(90, .0, .0, 1.0);
+
             glRotatef(-90, 0, 1.0, 0);
-            ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 60, -90);
             glScalef( objectScale, objectScale, objectScale );
-            glRotatef(90, 1.0, 0, 0);
-            glRotatef(90, 0, 1.0, 0);
-            model.drawFaces();
-            
-            
-        }
-        glPopMatrix();
+            ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 60, -90);
         
-        
-        
-        // DRAW TRANSLUCENT PART
-        ////////////////////////
-    //    glDisable( GL_DEPTH_TEST );
-        
-        glAlphaFunc ( GL_LESS, 0.6 ) ;
+
         glEnable ( GL_ALPHA_TEST ) ;
+        glAlphaFunc ( GL_GREATER, 0.9 ) ;
+        model.drawFaces();
+        glAlphaFunc ( GL_LESS, 0.9 ) ;
+        model.drawFaces();
+
         
-   //     glEnable(GL_BLEND);
-   //     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        
-   //     glDisable(GL_CULL_FACE);
-   //     glDepthFunc(GL_LEQUAL);
-        
-        // glEnable( GL_CULL_FACE );
-        
-        glPushMatrix();
-        glTranslatef( ofGetWidth() * 0.5, ofGetHeight() * 0.5, 0 );
-        {
-            
-            
-            glMatrixMode(GL_PROJECTION);
-            glLoadMatrixf( qcar->getProjectionMatrix().getPtr() );
-            
-            glMatrixMode( GL_MODELVIEW );
-            glLoadMatrixf( qcar->getModelViewMatrix().getPtr() );
-            glTranslatef( 0.0f, 0.0f, 0.0f );
-            glRotatef(180, 1.0, .0, 1.0);
-            glRotatef(-90, 0, 1.0, 0);
-            ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 60, -90);
-            glScalef( objectScale, objectScale, objectScale );
-            glRotatef(90, 1.0, 0, 0);
-            glRotatef(90, 0, 1.0, 0);
-            model.drawFaces();
-            
-            
-        }
+        glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+        glMatrixMode( GL_MODELVIEW );
         glPopMatrix();
 
+ 
         
         glDisable(GL_ALPHA_TEST);
         
         
         // glDisable( GL_CULL_FACE );
         
-        ofSetupScreen();
-        
-        ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
-        ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
+        //ofSetupScreen();
+      //  ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate(), 2), 10, 15);
+      //  ofDrawBitmapString("num animations for this model: " + ofToString(model.getAnimationCount()), 10, 30);
         
         
         /*
@@ -260,33 +255,99 @@ void RAApp::draw(){
          ofDrawBitmapString("double tap to change model", 10, 60);
          
          */
-        ofDisableNormalizedTexCoords();
+        //ofDisableNormalizedTexCoords();
+    }
+    // Reinit anim state when marker disappear
+    else
+    {
+        animState = 0;
+        model.resetAllAnimations();
     }
     
-    glEnable(GL_DEPTH_TEST);
-    
+    //glEnable(GL_DEPTH_TEST);
+    glAlphaFunc ( GL_GREATER, 0.9 ) ;
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_ALPHA_TEST);
+    glDisable( GL_CULL_FACE );
+    glDisable(GL_LIGHTING);
+    ofSetColor(ofColor::white);
 
-    
+
+    //ofGetGLRenderer()->setupScreenPerspective(0,0,OF_ORIENTATION_180);
+   // ofSetupScreen();
+
     // CADRE
+
     cadreH.draw(0,0);
     cadreB.draw(0,ofGetHeight() - cadreB.height);
-    
     
     if(bPressed) {
         ofSetColor(ofColor::red);
         ofDrawBitmapString("touch x = " + ofToString((int)touchPoint.x), 20, 200);
         ofDrawBitmapString("touch y = " + ofToString((int)touchPoint.y), 20, 220);
     }
+    ofDrawBitmapString("scale= " + ofToString((float)recogPinch->scale), 20, 240);
+    ofDrawBitmapString("anim position " + ofToString(model.getAnimation(0).getPosition()), 20, 260);
+    
+    if (animState == 1)
+    {
+        ofImage buttonSlected;
+        buttonSlected.loadImage("Interface/Boutons-JPG/Bouton-Techno01-x1138- y1389.jpg");
+        buttonSlected.draw(1138,1389, 255, 89);
+    }
+    else if (animState == 2)
+    {
+        ofImage buttonSlected;
+        buttonSlected.loadImage("Interface/Boutons-JPG/Bouton-Techno02-x1435-y1389.jpg");
+        buttonSlected.draw(1435,1389, 255, 89);
+    }
+    
+
 }
 
 //--------------------------------------------------------------
 void RAApp::exit(){
+    model.resetAllAnimations();
     ofxQCAR::getInstance()->exit();
 }
 
 //--------------------------------------------------------------
 void RAApp::touchDown(ofTouchEventArgs & touch){
-    touchPoint.set(touch.x, touch.y);
+//    touchPoint.set(touch.x, touch.y);
+
+    int newState = 0;
+    // INHALATEUR
+    if (ofxQCAR::getInstance()->hasFoundMarker() && ofRectangle(1138,1389,255,89).inside(touch.x, touch.y))
+         newState = 1;
+    // DIFFUSION
+    else if (ofxQCAR::getInstance()->hasFoundMarker() && ofRectangle(1435,1389,255,89).inside(touch.x, touch.y))
+         newState = 2;
+    // ACCUEIL
+    else if (ofRectangle(1733,1389,197,89).inside(touch.x, touch.y))
+    {
+        newState = 0;
+        exit();
+        [mainController.navigationController popViewControllerAnimated:YES];
+    }
+    else if (ofRectangle(1370,40,250,118).inside(touch.x, touch.y))
+    {
+        cout << "quitte vers accueil" << endl;
+        exit();
+        [mainController.navigationController popViewControllerAnimated:YES];
+        
+        [NSTimer scheduledTimerWithTimeInterval:1
+                                         target:mainController
+                                       selector:@selector(buttonLegalAction:)
+                                       userInfo:nil
+                                        repeats:NO];
+        
+    }
+    if (newState > 0)
+    {
+        model.getAnimation(0).setPosition(animEnds[newState-1]);
+        animState = newState;
+        model.getAnimation(0).setPaused(false);
+    }
 }
 
 //--------------------------------------------------------------
@@ -297,11 +358,11 @@ void RAApp::touchMoved(ofTouchEventArgs & touch){
 //--------------------------------------------------------------
 void RAApp::touchUp(ofTouchEventArgs & touch){
     touchPoint.set(-1, -1);
+    
 }
 
 //--------------------------------------------------------------
 void RAApp::touchDoubleTap(ofTouchEventArgs & touch){
-    
 }
 
 //--------------------------------------------------------------

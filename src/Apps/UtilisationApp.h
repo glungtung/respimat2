@@ -4,6 +4,7 @@
 #include "ofxiPhone.h"
 #include "ofxiPhoneExtras.h"
 #import "VideoAppViewController.h"
+#include "MyAppViewController.h"
 
 
 class UtilisationApp : public ofxiPhoneApp {
@@ -31,11 +32,11 @@ public:
 
     void loadVideo(string path);
     
-    ofTrueTypeFont font;
     ofiPhoneVideoPlayer video;
     ofImage cadre;
 
-    VideoAppViewController * mainController;
+    MyAppViewController * mainController;
+    
 };
 
 

@@ -5,11 +5,16 @@
 
 #import "MyAppViewController.h"
 
-#import "BonUsage.h"
 #import "ofxQCAR_ViewController.h"
 #import "RAApp.h"
+#import "RABroncheApp.h"
 #import "VideoAppViewController.h"
 #import "UtilisationApp.h"
+#import "BonUsage.h"
+#import "MentionsLegales.h"
+
+#import "dataLoader.h"
+
 
 @interface MyAppViewController() {
 }
@@ -19,6 +24,7 @@
 
 - (id)init {
     self = [super init];
+
     return self;
 }
 
@@ -71,7 +77,7 @@
                                         screenRect.size.width,
                                         screenRect.size.height);
     
-    UIView* containerView = [[[UIScrollView alloc] initWithFrame:scrollViewFrame] autorelease];
+    UIView* containerView = [[[UIView alloc] initWithFrame:scrollViewFrame] autorelease];
     containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:containerView];
 
@@ -84,7 +90,8 @@
     //NSInteger buttonHeight = (screenRect.size.height - 44) / [buttonTitles count] - buttonGap * ([buttonTitles count] - 1);
     //CGRect buttonRect1 = CGRectMake(390, 1380)
     //CGRect buttonRect1 = CGRectMake(260, 600, 150, 60);
-    
+
+//    (UIScrollView*)(contain
     
     UIImage *img1 = [UIImage imageNamed:@"Bouton-accueil01-x404-y1389.jpg"];
     CGRect buttonRect1 = CGRectMake(404/2, 1389/2, img1.size.width/2, img1.size.height/2);
@@ -92,13 +99,21 @@
     UIImage *img2 = [UIImage imageNamed:@"Bouton-accueil02-x718-y1389.jpg"];
     CGRect buttonRect2 = CGRectMake(718/2, 1389/2, img2.size.width/2, img2.size.height/2);
 
+    UIImage *img3 = [UIImage imageNamed:@"Bouton-accueil03-x1047-y1389.jpg"];
+    CGRect buttonRect3 = CGRectMake(1047/2, 1389/2, img3.size.width/2, img3.size.height/2);
+    
+    UIImage *img4 = [UIImage imageNamed:@"Bouton-accueil04-x1419-y1389.jpg"];
+    CGRect buttonRect4 = CGRectMake(1419/2, 1389/2, img4.size.width/2, img4.size.height/2);
+    
+    CGRect buttonRectLegal = CGRectMake(1370/2, 40/2, 250/2, 118/2);
     
     //for (int i = 0; i < [buttonTitles count]; i++) {
         //UIButton *button;
         //button = [self makeButtonWithFrame:CGRectMake(buttonX, buttonY, buttonRect.size.width, buttonRect.size.height)
         //                           andText:[buttonTitles objectAtIndex:i]];
     
-    UIButton *button1, *button2;
+    
+    UIButton *button1, *button2, *button3, *button4, *buttonLegal;
 
 //    button1 = [[[UIButton alloc] initWithFrame:CGRectMake(390, 1380, img1.size.width, img1.size.height)] autorelease];
     button1 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect1.origin.x, buttonRect1.origin.y, buttonRect1.size.width, buttonRect1.size.height)] autorelease];
@@ -110,9 +125,22 @@
     button2 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect2.origin.x, buttonRect2.origin.y, buttonRect2.size.width, buttonRect2.size.height)] autorelease];
     //[button2 setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.1]];
     [button2 setBackgroundImage: img2 forState: UIControlStateHighlighted];
-    [button2 addTarget:self action:@selector(button2Pressed:) forControlEvents:UIControlEventTouchUpInside];
+    [button2 addTarget:self action:@selector(button2Action:) forControlEvents:UIControlEventTouchUpInside];
     [containerView addSubview:button2 ];
+
+    button3 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect3.origin.x, buttonRect3.origin.y, buttonRect3.size.width, buttonRect3.size.height)] autorelease];
+    [button3 setBackgroundImage: img3 forState: UIControlStateHighlighted];
+    [button3 addTarget:self action:@selector(button3Action:) forControlEvents:UIControlEventTouchUpInside];
+    [containerView addSubview:button3 ];
  
+    button4 = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRect4.origin.x, buttonRect4.origin.y, buttonRect4.size.width, buttonRect4.size.height)] autorelease];
+    [button4 setBackgroundImage: img4 forState: UIControlStateHighlighted];
+    [button4 addTarget:self action:@selector(button4Action:) forControlEvents:UIControlEventTouchUpInside];
+    [containerView addSubview:button4 ];
+    
+    buttonLegal = [[[UIButton alloc] initWithFrame:CGRectMake(buttonRectLegal.origin.x, buttonRectLegal.origin.y, buttonRectLegal.size.width, buttonRectLegal.size.height)] autorelease];
+    [buttonLegal addTarget:self action:@selector(buttonLegalAction:) forControlEvents:UIControlEventTouchUpInside];
+    [containerView addSubview:buttonLegal ];
 /*
         if (i== 0)
             [button addTarget:self action:@selector(button1Pressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,32 +158,72 @@
 
 - (void)button1Pressed:(id)sender {
     ofxQCAR_ViewController * viewController;
-    viewController = [[[ofxQCAR_ViewController alloc] initWithAppInLandscapeMode:new RAApp()] autorelease];
-    
+    RAApp * ra = new RAApp();
+    viewController = [[[ofxQCAR_ViewController alloc] initWithAppInLandscapeMode:ra] autorelease];
+    ra->mainController = self;
+
     [self.navigationController pushViewController:viewController animated:YES];
     //self.navigationController.navigationBar.topItem.title = @"Qualcomm AR";
     self.navigationController.navigationBarHidden = YES;
 
 }
 
-- (void)button2Pressed:(id)sender {
+
+- (void)button2Action:(UIButton*)b {
     // Basic view controller (should not be named Video...)
     VideoAppViewController *viewController;
     UtilisationApp *utilisation = new UtilisationApp();
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     viewController = [[[VideoAppViewController alloc] initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width)
                                                                 app:utilisation] autorelease];
-    utilisation->mainController = viewController;
+    utilisation->mainController = self;
     [self.navigationController pushViewController:viewController animated:YES];
     //self.navigationController.navigationBar.topItem.title = @"Video";
     self.navigationController.navigationBarHidden = YES;
+}
 
+- (void)button3Action:(id)sender {
+    ofxQCAR_ViewController * viewController;
+    RABroncheApp * ra = new RABroncheApp();
+    viewController = [[[ofxQCAR_ViewController alloc] initWithAppInLandscapeMode:ra] autorelease];
+    ra->mainController = self;
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+    //self.navigationController.navigationBar.topItem.title = @"Qualcomm AR";
+    self.navigationController.navigationBarHidden = YES;
+    
+}
+
+- (void)button4Action:(UIButton*)b {
+    // Basic view controller (should not be named Video...)
+    VideoAppViewController *viewController;
+    BonUsage *bonUsage = new BonUsage();
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    viewController = [[[VideoAppViewController alloc] initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width)
+                                                                app:bonUsage] autorelease];
+    bonUsage->mainController = self;
+    [self.navigationController pushViewController:viewController animated:YES];
+    //self.navigationController.navigationBar.topItem.title = @"Video";
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)buttonLegalAction:(UIButton*)b {
+    // Basic view controller (should not be named Video...)
+    VideoAppViewController *viewController;
+    MentionsLegales *mentionL = new MentionsLegales();
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    viewController = [[[VideoAppViewController alloc] initWithFrame:CGRectMake(0, 0, screenSize.height, screenSize.width)
+                                                                app:mentionL] autorelease];
+    mentionL->mainController = self;
+    [self.navigationController pushViewController:viewController animated:YES];
+    //self.navigationController.navigationBar.topItem.title = @"Video";
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     BOOL bRotate = NO;
-    bRotate = bRotate || (toInterfaceOrientation == UIInterfaceOrientationPortrait);
-    bRotate = bRotate || (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+    //bRotate = bRotate || (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+    //bRotate = bRotate || (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
     return bRotate;
 }
 

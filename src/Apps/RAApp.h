@@ -8,6 +8,12 @@
 #include "ofxAssimpModelLoader.h"
 #include "ofVboMesh.h"
 
+#include "ofPinchGestureRecognizer.h"
+
+#include "ofxQCAR_ViewController.h"
+
+#include "MyAppViewController.h"
+
 class RAApp : public ofxiPhoneApp {
 	
 public:
@@ -38,9 +44,18 @@ public:
     ofxAssimpModelLoader model;
     ofLight	light;
 
+    float objectScale, lastObjectScale;
     
     //ofShader shader;
     ofPoint mousePoint;
+    
+    //to identify specific pan/pinch/tap/swipe gestures
+    ofPinchGestureRecognizer      *recogPinch;
+    
+    MyAppViewController * mainController;
+
+    int animState;
+    float animEnds[3];
+
+
 };
-
-
