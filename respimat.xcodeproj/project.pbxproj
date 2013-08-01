@@ -62,7 +62,6 @@
 		F04EED6817A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6117A16FBD0051175A /* Bouton-BonUsage02-x1435-y1389.jpg */; };
 		F04EED6917A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */; };
 		F04EED6C17A174E30051175A /* UtilisationApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F04EED6B17A174E30051175A /* UtilisationApp.mm */; };
-<<<<<<< HEAD
 		F097A06B17A7CC0C008CC795 /* aiColor4D.inl in Resources */ = {isa = PBXBuildFile; fileRef = F097A02D17A7CC0C008CC795 /* aiColor4D.inl */; };
 		F097A06C17A7CC0C008CC795 /* aiMaterial.inl in Resources */ = {isa = PBXBuildFile; fileRef = F097A03317A7CC0C008CC795 /* aiMaterial.inl */; };
 		F097A06D17A7CC0C008CC795 /* aiMatrix3x3.inl in Resources */ = {isa = PBXBuildFile; fileRef = F097A03517A7CC0C008CC795 /* aiMatrix3x3.inl */; };
@@ -77,19 +76,14 @@
 		F097A08C17A9A535008CC795 /* RABroncheApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F097A08B17A9A535008CC795 /* RABroncheApp.mm */; };
 		F097A08F17AA658F008CC795 /* BonUsage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F097A08E17AA658E008CC795 /* BonUsage.mm */; };
 		F097A09217AA6CAC008CC795 /* MentionsLegales.mm in Sources */ = {isa = PBXBuildFile; fileRef = F097A09117AA6CAB008CC795 /* MentionsLegales.mm */; };
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 		F0DD1A1917A6744500755CAD /* MentionLegale-Page01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1517A6744500755CAD /* MentionLegale-Page01.jpg */; };
 		F0DD1A1A17A6744500755CAD /* MentionLegale-Page02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1617A6744500755CAD /* MentionLegale-Page02.jpg */; };
 		F0DD1A1B17A6744500755CAD /* MentionLegale-Page03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1717A6744500755CAD /* MentionLegale-Page03.jpg */; };
 		F0DD1A1C17A6744500755CAD /* MentionLegale-Page04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0DD1A1817A6744500755CAD /* MentionLegale-Page04.jpg */; };
-<<<<<<< HEAD
 		F0DD1A5217A6A62500755CAD /* ofPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DD1A3E17A6A62500755CAD /* ofPanGestureRecognizer.m */; };
 		F0DD1A5317A6A62500755CAD /* ofPinchGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DD1A4017A6A62500755CAD /* ofPinchGestureRecognizer.m */; };
 		F0DD1A5417A6A62500755CAD /* ofSwipeGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DD1A4217A6A62500755CAD /* ofSwipeGestureRecognizer.m */; };
 		F0DD1A5517A6A62500755CAD /* ofTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DD1A4417A6A62500755CAD /* ofTapGestureRecognizer.m */; };
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,7 +213,6 @@
 		F04EED6217A16FBD0051175A /* Bouton-BonUsage03-x1733-y1389.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bouton-BonUsage03-x1733-y1389.jpg"; sourceTree = "<group>"; };
 		F04EED6A17A174E30051175A /* UtilisationApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilisationApp.h; sourceTree = "<group>"; };
 		F04EED6B17A174E30051175A /* UtilisationApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UtilisationApp.mm; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		F097A02917A7CC0C008CC795 /* aiAnim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aiAnim.h; sourceTree = "<group>"; };
 		F097A02A17A7CC0C008CC795 /* aiAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aiAssert.h; sourceTree = "<group>"; };
 		F097A02B17A7CC0C008CC795 /* aiCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aiCamera.h; sourceTree = "<group>"; };
@@ -275,13 +268,10 @@
 		F097A08E17AA658E008CC795 /* BonUsage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BonUsage.mm; sourceTree = "<group>"; };
 		F097A09017AA6CAB008CC795 /* MentionsLegales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsLegales.h; sourceTree = "<group>"; };
 		F097A09117AA6CAB008CC795 /* MentionsLegales.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MentionsLegales.mm; sourceTree = "<group>"; };
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 		F0DD1A1517A6744500755CAD /* MentionLegale-Page01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page01.jpg"; sourceTree = "<group>"; };
 		F0DD1A1617A6744500755CAD /* MentionLegale-Page02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page02.jpg"; sourceTree = "<group>"; };
 		F0DD1A1717A6744500755CAD /* MentionLegale-Page03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page03.jpg"; sourceTree = "<group>"; };
 		F0DD1A1817A6744500755CAD /* MentionLegale-Page04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MentionLegale-Page04.jpg"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		F0DD1A3D17A6A62500755CAD /* ofPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofPanGestureRecognizer.h; sourceTree = "<group>"; };
 		F0DD1A3E17A6A62500755CAD /* ofPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofPanGestureRecognizer.m; sourceTree = "<group>"; };
 		F0DD1A3F17A6A62500755CAD /* ofPinchGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofPinchGestureRecognizer.h; sourceTree = "<group>"; };
@@ -290,8 +280,6 @@
 		F0DD1A4217A6A62500755CAD /* ofSwipeGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofSwipeGestureRecognizer.m; sourceTree = "<group>"; };
 		F0DD1A4317A6A62500755CAD /* ofTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofTapGestureRecognizer.h; sourceTree = "<group>"; };
 		F0DD1A4417A6A62500755CAD /* ofTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofTapGestureRecognizer.m; sourceTree = "<group>"; };
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,7 +643,6 @@
 			path = "Boutons-JPG";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		F097A02417A7CC0C008CC795 /* ofxAssimpModelLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,8 +753,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 		F0DD1A1417A6744500755CAD /* Mentionlegale */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,7 +764,6 @@
 			path = Mentionlegale;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		F0DD1A1F17A6A62400755CAD /* ofxGestureRecognizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,8 +788,6 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -901,14 +883,11 @@
 				F0DD1A1A17A6744500755CAD /* MentionLegale-Page02.jpg in Resources */,
 				F0DD1A1B17A6744500755CAD /* MentionLegale-Page03.jpg in Resources */,
 				F0DD1A1C17A6744500755CAD /* MentionLegale-Page04.jpg in Resources */,
-<<<<<<< HEAD
 				F097A06B17A7CC0C008CC795 /* aiColor4D.inl in Resources */,
 				F097A06C17A7CC0C008CC795 /* aiMaterial.inl in Resources */,
 				F097A06D17A7CC0C008CC795 /* aiMatrix3x3.inl in Resources */,
 				F097A06E17A7CC0C008CC795 /* aiMatrix4x4.inl in Resources */,
 				F097A06F17A7CC0C008CC795 /* aiVector3D.inl in Resources */,
-=======
->>>>>>> 48a57db1870b16a32fb0a7167b1c0833a71dc461
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
